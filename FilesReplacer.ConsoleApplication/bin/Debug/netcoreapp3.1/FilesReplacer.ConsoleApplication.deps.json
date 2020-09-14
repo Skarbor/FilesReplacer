@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "FilesReplacer.ConsoleApplication/1.0.0": {
+        "dependencies": {
+          "FilesReplacer.BusinessLayer": "1.0.0"
+        },
+        "runtime": {
+          "FilesReplacer.ConsoleApplication.dll": {}
+        }
+      },
+      "FilesReplacer.BusinessLayer/1.0.0": {
+        "runtime": {
+          "FilesReplacer.BusinessLayer.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FilesReplacer.ConsoleApplication/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FilesReplacer.BusinessLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
