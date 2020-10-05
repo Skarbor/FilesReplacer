@@ -29,8 +29,8 @@ namespace FilesReplacer.BusinessLayer
 
         public void Replace()
         {
-            var filesFromSource = GetFilesMatchingCriteria(sourceDirectoryTreePath).Where(file => GetFileName(file).StartsWith("SolarWinds.APM."));
-            var filesFromDest = GetFilesMatchingCriteria(destinationDirectoryTreePath).Where(file => GetFileName(file).StartsWith("SolarWinds.APM."));
+            var filesFromSource = GetFilesMatchingCriteria(sourceDirectoryTreePath).Where(file => GetFileName(file).Contains("SolarWinds") && GetFileName(file).Contains("APM"));
+            var filesFromDest = GetFilesMatchingCriteria(destinationDirectoryTreePath).Where(file => GetFileName(file).Contains("SolarWinds") && GetFileName(file).Contains("APM"));
 
             Console.WriteLine($"Found {filesFromSource.Count()} in source catalog that match criteria.");
             Console.WriteLine($"Found {filesFromDest.Count()} in source catalog that match criteria.");
@@ -47,9 +47,15 @@ namespace FilesReplacer.BusinessLayer
                 }
 
                 //File.Replace(srcFile, destFileFullName, GetFileName(dstFileName));
-                File.Copy(srcFile, destFileFullName, true);
-                Console.WriteLine($"{GetFileName(srcFile)}   --->   {destFileFullName}");
-
+                try
+                {
+                    File.Copy(srcFile, destFileFullName, true);
+                    Console.WriteLine($"{GetFileName(srcFile)}   --->   {destFileFullName}");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
             }
 
 
